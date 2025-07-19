@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  /*a medida vem da borda e a partir dela ele vai se virar para ajustar qualquer outra medida dentro da borda estripulada la em #container width*/
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highligth-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.ligth {
+  --text-color: black; 
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highligth-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /* 
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  (a imagem não se repete, fica apenas uma na pagina)
+  background-position: top center;
+  (eixo y no top, e o eixo x no centro)
+  background-size: contain;
+  (utiliza o espaço do quadrado do body, so especificar o tamanho do body como mostrado abaixo)
+  width: 100vw;
+  height: 100vw;
+  background-size: cover;
+  (cover preenche todo o espaço, melhoir para usar em dispositivos pequenos. EX: celulares)
+  */
+
+  /*Background: color-image-repeat-position / size*/
+  background: var(--bg-url) no-repeat top center/ cover;
+}
+
+
+body * {
+  font-family: "Inter", sans-serif;
+  color:var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /*
+  margin-right: auto;
+  margin-left: auto;
+  */
+  /*ou apenas usar*/
+  /*margin: auto;*/
+
+  /*padding: 100px;*/
+  /*sem ajustar la em (* ou seletor universal) o width e desconsiderado ele precisa do box sizing em border box*/
+  /*margin-top: 56px;*/
+  /*margine padding seguem essa linhagem (1 top, 2 rigth, 1 bottom e 2 left) */
+  margin: 56px auto /*aqui em cima/baixo e laterais*/ 0px/*aqui em cima nas laterais e em baixo*/ auto /*em cima direita baixo esquerda*/;
+
+  padding: 0 24px;
+}
+
+
+/*PROFILE*/
+/*pode ser usando tirando a definição manual do display, e colocando a caixa pai em*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  /*display: block;*/
+  /*link é elemento inline, em display inline o margin em auto não deixara a caixa centralizada*/
+  margin: auto;
+}
+
+#profile p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+
+/*Botão*/
+#Switch {
+  /*ao usar top, rigth left ou buttom no (Button), ele iria ocupoar todo o corpo de body, usando o relative ele ira
+  ter como referencia o espaço dentro da propria div Switch*/
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#Switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  /*Centralizando o position absolute*/
+  /*sobreposição de camadas usando o absolut*/
+  position: absolute;
+  top: 50%;
+  /*mudando supostamente o andar do elemento visto de cima, deixando em 1 ele sobe um andar, deixando em 0 o SPAN ficaria por cima
+  o tornando a camada de baixo*/
+  z-index: 1;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.ligth #Switch button {
+  right: 0;
+  left: initial;
+}
+
+#Switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+
+/*Links lista*/
+ul {
+  list-style: none; /* é o estilo da lista definido como nenhum */
+
+  display: flex; /* adiciona dentro da caixa ou seja aos (li) fazendo com que fique um ao lado do outro*/
+
+  /*flex-direction por padrão ja é (row)*/
+  flex-direction: column; /*colum é para ficar 1 a baixo do outro, pois com row ficaria um ao lado do outro*/
+
+  gap: 16px; /*colocara espaço entre os elementos tanto em vertical como horizontal dependendo do flex direction*/
+  padding: 24px 0;
+}
+
+/* (li) é display block e (a) é display inline, ou seja (li) usara o espaço dos 360px para inserir a borda, ja o (a) usara apenas o espaço ocupado por (conteudo) para a borda sendo assim ela não ocupara
+todo o espaço caso não tenha conteudo "suficiente" */ 
+/*ul li {
+  border: 1px solid plum; /* esta definodo dentro de (#container) o tamanho da caixa ja sendo de 360px} 
+  */ 
+
+ul li a {
+  display: flex;
+  justify-content: center; /*alinha ao centro verticalmente*/
+  align-items: center;/*centraliza horizontalmente agora*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  /*webikt é algo de exigencia do navegador edge para o comando (backdrop-filter) pode se achar essas
+  exigencia no site {caniuse.com}*/
+
+  text-decoration: none; /*remove a listra abaixo dos links (existen outras propriedades tambem para riscar ao meio ou colocar a linha acima assim por diante*/
+  font-weight: 500; /*o tamanho da fonte pode ser usado (bold)*/
+
+  transition: background 0.2s;
+  /*serve para transicionar a mudança com o hover para ficar mais suavizado*/
+}
+
+
+/*pseudo selector*/
+/* hover e para quando se passa o mouse por cima */
+ul li a:hover{
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
+}
+
+
+/*Social Links*/
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+#social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;  
+}
+#social-links a:hover {
+  background: var(--highligth-color);
+}
+
+
+/*Rodapé*/
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
+footer a {
+  text-decoration: none;
+  transition: background 0.2s;
+}
+footer a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+  #container {
+    width: 500px;
+  }
+}

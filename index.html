@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" class="">
+
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devlinks</title>
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+
+  <body>
+
+    <div id="container">
+
+      <div id="profile">
+        <img
+          src="./assets/avatar.png"
+          alt="foto de rian com fundo preto"
+         />
+        <p>
+          @riannrack
+        </p>
+      </div>
+      
+      <div id="Switch" onclick="toggleMode()">
+        <button>
+        </button>
+        <span>
+        </span>
+      </div>
+
+      <!-- (ul) é para criar listas 
+      (li) é um link da lista e o
+      (a) é o direcionador de paginas 
+      -->    
+      <ul>
+        <li>
+          <a href="#" target="_blank">Assita minhas aulas</a>
+        </li>
+
+        <li>
+          <a href="#" target="_blank">Baixar meu e-Book</a>
+        </li>
+
+        <li>
+          <a href="#" target="_blank">Veja meu Portifolio</a>
+        </li>
+
+        <li>
+          <a href="#" target="_blank">Conheça meu curso</a>
+        </li>
+        <!--(target="_blank") é para que ao clicar em meu link se abra uma nova aba no navegador ao invez de fechar a atual -->
+      </ul>
+
+      <div id="social-links">
+
+        <a href="https://github.com/dashboard" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+
+        <a href="https://www.instagram.com/accounts/onetap/?next=%2F" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+        <a href="https://www.youtube.com/" target="_blank">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+
+        <a href="https://web.whatsapp.com/" target="_blank">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+
+      </div>
+
+      <footer>
+       Feito com ♥ por  <a href="https://www.instagram.com/riannrack/?next=%2F" target="_blank">Rian Rackley</a>
+      </footer>
+
+    </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="./script.js"></script>
+  </body>
+</html>
