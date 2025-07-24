@@ -52,7 +52,7 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%; /*em 100% sempre mantera o tamanho responsivo com o tamanho da tela exibida*/
   /*
   margin-right: auto;
   margin-left: auto;
@@ -60,6 +60,8 @@ body * {
   /*ou apenas usar*/
   /*margin: auto;*/
 
+  max-width: 360px; /*determinando esse tamanho ele nunca passara desses 360px*/
+  
   /*padding: 100px;*/
   /*sem ajustar la em (* ou seletor universal) o width e desconsiderado ele precisa do box sizing em border box*/
   /*margin-top: 56px;*/
@@ -222,8 +224,3 @@ footer a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-@media (min-width: 768px) {
-  #container {
-    width: 500px;
-  }
-}
