@@ -43,6 +43,7 @@ body {
 
   /*Background: color-image-repeat-position / size*/
   background: var(--bg-url) no-repeat top center/ cover;
+  height: 100vh;
 }
 
 
@@ -224,3 +225,14 @@ footer a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/*Media Queries*/
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .ligth {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
