@@ -121,11 +121,18 @@ body * {
   z-index: 1;
   left: 0;
   transform: translateY(-50%);
+
+  animation: percurso-volta 0.8s;
 }
 
 .ligth #Switch button {
-  right: 0;
-  left: initial;
+ animation: percurso-ida 0.8s forwards;
+ /*aplicando o forwards se adiciona uma regra a animação que ao invez de terminar e voltar a posição inicial
+ ela fica onde terminou*/
+}
+
+#Switch button:hover {
+  outline: 8px solid var(--highligth-color);
 }
 
 #Switch span {
@@ -234,5 +241,23 @@ footer a:hover {
 
   .ligth {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*Animações com CSS*/
+@keyframes percurso-ida{
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes percurso-volta{
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
